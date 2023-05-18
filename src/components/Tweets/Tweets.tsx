@@ -14,7 +14,7 @@ export const Tweets: FC = () => {
 	const [limit] = useState<number>(3);
 
 	useEffect(() => {
-		const controller = new AbortController();
+		const controller: AbortController = new AbortController();
 		dispatch(fetchUsers({ page, limit, controller }));
 
 		return () => {
