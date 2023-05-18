@@ -1,11 +1,10 @@
-import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
 import { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "../../redux/operations";
 import { useUsers } from "../../hooks/useUsers/useUsers";
-import { IUser } from "../../interfaces/User";
-
-type AppDispatch = ThunkDispatch<RTCIceConnectionState, unknown, AnyAction>;
+import { IUser } from "../../interfaces/IUser";
+import { User } from "../User/User";
+import { AppDispatch } from "../../types/AppDispatch";
 
 export const Tweets: FC = () => {
 	const dispatch: AppDispatch = useDispatch();
@@ -29,13 +28,7 @@ export const Tweets: FC = () => {
 			<ul>
 				{
 					users.length > 0 &&
-					users.map(
-						(user: IUser) =>
-							<li key={user.id}>
-								<img width={30} height={30} src={user.avatar} alt={user.user} />
-								<p>{user.user}</p>
-							</li>
-					)
+					users.map((user: IUser) => <li key={user.id}><User user={user} /></li>)
 				}
 			</ul>
 			{

@@ -1,4 +1,4 @@
-import { IInitialState } from "../interfaces/InitialState";
+import { IInitialState } from "../interfaces/IInitialState";
 
 interface IState {
 	users: IInitialState;
