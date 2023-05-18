@@ -1,0 +1,22 @@
+@import "../../sass/helper";
+
+.Follow,
+.Following {
+  padding: 14px 0;
+  max-width: 196px;
+  width: 100%;
+  text-transform: uppercase;
+  border-radius: 10px;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.Follow {
+  background-color: $--bg-follow;
+}
+
+.Following {
+  background-color: $--bg-following;
+}

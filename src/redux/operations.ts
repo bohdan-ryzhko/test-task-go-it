@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { Follow } from "../components/Button/Button";
 
 axios.defaults.baseURL = "https://64523c76a2860c9ed405b95c.mockapi.io/api/v1";
 
@@ -32,7 +33,7 @@ export const fetchUsers = createAsyncThunk(
 
 interface toggleFollowParametrs {
 	id: string,
-	followStatus: string
+	followStatus: Follow
 }
 
 export const toggleFollow = createAsyncThunk(
@@ -42,7 +43,7 @@ export const toggleFollow = createAsyncThunk(
 			const { data } = await axios.get(`users/${id}`);
 			const updatedFollowers = followStatus === "Follow" ? data.followers + 1 : data.followers - 1;
 			const response = await axios.put(`users/${id}`, { ...data, followers: updatedFollowers });
-			return response.data;
+			return { data: response.data, status: followStatus };
 		} catch (error) {
 			return thunkAPI.rejectWithValue(error);
 		}
