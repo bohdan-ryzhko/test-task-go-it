@@ -9,7 +9,7 @@ type AppDispatch = ThunkDispatch<RTCIceConnectionState, unknown, AnyAction>;
 
 export const Tweets: FC = () => {
 	const dispatch: AppDispatch = useDispatch();
-	const { users, isLoad, error } = useUsers();
+	const { users } = useUsers();
 	const [page, setPage] = useState<number>(1);
 	const [limit] = useState<number>(3);
 
