@@ -1,6 +1,7 @@
 @import "../../sass/helper";
 
 .userInner {
+  overflow: hidden;
   & > p {
     color: $--main-color;
     font-weight: 500;
