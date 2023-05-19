@@ -13,13 +13,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   // <React.StrictMode>
-    <BrowserRouter basename="/test-task-go-it">
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/test-task-go-it">
           <App />
-        </PersistGate>
-      </Provider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   // {/* </React.StrictMode> */}
 );
 
