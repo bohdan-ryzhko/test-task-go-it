@@ -33,7 +33,9 @@ export const User: FC<IUserProps> = ({ user: { user, avatar, tweets, followers, 
 				<img width={308} height={168} src={picture} alt="Decorative" />
 			</div>
 			<div className={sass.avatar}>
+				<span className={sass.left} />
 				<img height={62} src={avatar} alt={user} />
+				<span className={sass.right} />
 			</div>
 			<p className={sass.user}>{user}</p>
 			<p className={sass.tweets}>{addComma(tweets)} <span>tweets</span></p>

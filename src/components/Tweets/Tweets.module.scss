@@ -6,6 +6,11 @@
   align-items: center;
   gap: 30px;
   margin-bottom: 30px;
+  justify-content: center;
+
+  @include tablet {
+    justify-content: space-between;
+  }
 }
 
 .user {
@@ -15,11 +20,10 @@
   box-shadow: $--shadow;
   border-radius: 20px;
   padding-top: 28px;
-  padding-left: 36px;
-  padding-right: 36px;
   padding-bottom: 36px;
   height: 100%;
   position: relative;
+  max-width: 380px;
 
   &::before {
     content: "";
