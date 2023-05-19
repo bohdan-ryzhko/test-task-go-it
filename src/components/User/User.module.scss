@@ -21,32 +21,25 @@
 }
 
 .avatar {
-  max-width: 76px;
-  height: 76px;
+  max-width: 80px;
+  height: 80px;
   margin: 0 auto 26px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &::before {
-    position: absolute;
-    content: "";
-    width: 78px;
-    height: 78px;
-    background: #ebd8ff;
-    border-radius: 100%;
-    box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
-      inset 0px -2.19582px 4.39163px #ae7be3,
-      inset 0px 4.39163px 3.29372px #fbf8ff;
-  }
+  background: #ebd8ff;
+  border-radius: 100%;
+  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+    inset 0px -2.19582px 4.39163px #ae7be3,
+    inset 0px 4.39163px 3.29372px #fbf8ff;
 
   & > .left,
   & > .right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 151px;
+    width: 150px;
     height: 8px;
     background-color: $--main-color;
     box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
@@ -55,11 +48,11 @@
   }
 
   & > .left {
-    right: 101%;
+    right: 100%;
   }
 
   & > .right {
-    left: 101%;
+    left: 100%;
   }
 
   & > img {
