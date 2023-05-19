@@ -28,9 +28,6 @@ const usersSlice = createSlice({
 				state.isLoad = false;
 				state.error = action.payload;
 			})
-			.addCase(toggleFollow.pending, state => {
-				state.isLoad = true;
-			})
 			.addCase(toggleFollow.fulfilled, (state, action) => {
 				state.isLoad = false;
 				state.error = null;
