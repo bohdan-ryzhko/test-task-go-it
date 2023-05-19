@@ -1,6 +1,6 @@
 @import "../../sass/helper";
 
-.tweets {
+.tweetsList {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -11,6 +11,29 @@
   @include tablet {
     justify-content: space-between;
   }
+}
+
+.backLinkWrapper {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  transition: background-color 300ms ease;
+
+  &:hover {
+    background-color: #7252be34;
+  }
+}
+
+.backLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: -2px;
 }
 
 .user {

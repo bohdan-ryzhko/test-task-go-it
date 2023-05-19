@@ -1,0 +1,30 @@
+@import "../../sass/helper";
+
+.header {
+  width: 100vw;
+  height: 80px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #8b8b8b;
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.navLink {
+  color: $--color-dark;
+}
+
+.activeNavLink {
+  color: tomato;
+}

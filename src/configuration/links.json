@@ -1,0 +1,4 @@
+[
+  { "to": "/", "id": "id-01", "value": "Home" },
+  { "to": "/tweets", "id": "id-02", "value": "Tweets" }
+]
