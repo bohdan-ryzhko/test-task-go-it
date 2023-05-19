@@ -1,3 +1,4 @@
+import sass from "./Tweets.module.scss";
 import { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "../../redux/operations";
@@ -25,10 +26,10 @@ export const Tweets: FC = () => {
 
 	return (
 		<>
-			<ul>
+			<ul className={sass.tweets}>
 				{
 					users.length > 0 &&
-					users.map((user: IUser) => <li key={user.id}><User user={user} /></li>)
+					users.map((user: IUser) => <li className={sass.user} key={user.id}><User user={user} /></li>)
 				}
 			</ul>
 			{

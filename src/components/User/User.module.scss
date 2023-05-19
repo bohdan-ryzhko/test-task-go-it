@@ -1,0 +1,33 @@
+@import "../../sass/helper";
+
+.userInner {
+  & > p {
+    color: $--main-color;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(24 / 20);
+    text-transform: uppercase;
+  }
+  & > p + p {
+    margin-top: 16px;
+  }
+}
+
+.avatar {
+  max-width: 62px;
+  max-height: 62px;
+  margin: 0 auto 26px;
+
+  & > img {
+    display: inline-block;
+    width: 100%;
+    min-height: 62px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}
+
+.followers {
+  margin-bottom: 26px;
+}

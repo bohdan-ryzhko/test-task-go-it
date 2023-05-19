@@ -1,12 +1,14 @@
 import sass from "./User.module.scss";
+import picture from "../../images/picture.png";
 import { FC, useState } from "react";
 import { IUser } from "../../interfaces/IUser";
 import { Button, Follow } from "../Button/Button";
 import { AppDispatch } from "../../types/AppDispatch";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleFollow } from "../../redux/operations";
 import { handleFollowStatus } from "../../utils/handleFollowStatus";
-import { selectFollowUsers } from "../../redux/selectors";
+import { useUsers } from "../../hooks/useUsers/useUsers";
+import { addComma } from "../../utils/addComma";
 
 interface IUserProps {
 	user: IUser
@@ -15,7 +17,7 @@ interface IUserProps {
 export const User: FC<IUserProps> = ({ user: { user, avatar, tweets, followers, id } }) => {
 	const dispatch: AppDispatch = useDispatch();
 
-	const followItems = useSelector(selectFollowUsers);
+	const { followItems } = useUsers();
 	const currentUser = followItems.find(user => user.id === id);
 
 	const [followStatus, setFollowStatus] = useState<Follow>(currentUser?.status || "Follow");
@@ -26,13 +28,16 @@ export const User: FC<IUserProps> = ({ user: { user, avatar, tweets, followers, 
 	}
 
 	return (
-		<div>
+		<div className={sass.userInner}>
+			<div className={sass.picture}>
+				<img width={308} height={168} src={picture} alt="Decorative" />
+			</div>
 			<div className={sass.avatar}>
-				<img width={62} height={62} src={avatar} alt={user} />
+				<img height={62} src={avatar} alt={user} />
 			</div>
 			<p className={sass.user}>{user}</p>
-			<p className={sass.tweets}>{tweets} <span>tweets</span></p>
-			<p className={sass.followers}>{followers} <span>followers</span></p>
+			<p className={sass.tweets}>{addComma(tweets)} <span>tweets</span></p>
+			<p className={sass.followers}>{addComma(followers)} <span>followers</span></p>
 			<Button status={followStatus} onClick={() => onFollowStatus(id)} />
 		</div>
 	)

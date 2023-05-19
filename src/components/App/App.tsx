@@ -1,10 +1,12 @@
+import sass from "./App.module.scss";
 import { Tweets } from '../Tweets/Tweets';
-import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <Tweets />
+    <div className={sass.App}>
+      <div className={sass.container}>
+        <Tweets />
+      </div>
     </div>
   );
 }
