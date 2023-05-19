@@ -4,9 +4,21 @@ import { NavLink, useLocation } from "react-router-dom";
 import filterValues from "../../configuration/filterValues.json";
 import { Container } from "../Container/Container";
 import links from "../../configuration/links.json";
+import { AppDispatch } from "../../types/AppDispatch";
+import { useDispatch } from "react-redux";
+import { setFollowStatus } from "../../redux/usersSlice";
+// import { useUsers } from "../../hooks/useUsers/useUsers";
 
 export const Header: FC = () => {
 	const { pathname } = useLocation();
+	const dispatch: AppDispatch = useDispatch();
+
+	// const { followStatus } = useUsers();
+
+	const onDefineFollows = (status: string) => {
+		dispatch(setFollowStatus(status))
+	}
+
 	return (
 		<header className={sass.header}>
 			<Container>
@@ -28,7 +40,15 @@ export const Header: FC = () => {
 					</nav>
 					<div className={sass.filterButtons}>
 						{
-							filterValues.map(button => <button key={button.id}>{button.status}</button>)
+							pathname === "/tweets" &&
+							filterValues.map(
+								button =>
+									<button
+										onClick={() => onDefineFollows(button.followStatus)}
+										key={button.id}>
+										{button.status}
+									</button>
+							)
 						}
 					</div>
 				</div>

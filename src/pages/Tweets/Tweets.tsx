@@ -21,10 +21,10 @@ const Tweets: FC = () => {
 
 	const { state } = useLocation();
 	const backLinkRef = useRef(state?.from ?? "/");
-
+	
 	useEffect(() => {
 		const controller: AbortController = new AbortController();
-		dispatch(fetchUsers({ page, limit, controller }));
+		dispatch(fetchUsers({ page, limit }))
 
 		return () => {
 			controller.abort();

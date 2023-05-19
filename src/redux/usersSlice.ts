@@ -7,13 +7,18 @@ const initialState: IInitialState = {
 	items: [],
 	isLoad: false,
 	error: null,
-	followItems: []
+	followItems: [],
+	followStatus: ""
 }
 
 const usersSlice = createSlice({
 	name: "users",
 	initialState,
-	reducers: {},
+	reducers: {
+		setFollowStatus: (state, action) => {
+			state.followStatus = action.payload;
+		}
+	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchUsers.pending, (state) => {
@@ -50,4 +55,5 @@ const usersSlice = createSlice({
 	}
 });
 
+export const { setFollowStatus } = usersSlice.actions;
 export const usersReducer = usersSlice.reducer;

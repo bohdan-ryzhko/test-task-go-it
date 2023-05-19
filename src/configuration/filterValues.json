@@ -1,5 +1,5 @@
 [
-  { "status": "Show All", "id": "id-01" },
-  { "status": "Follow", "id": "id-02" },
-  { "status": "Following", "id": "id-03" }
+  { "status": "Show All", "followStatus": "", "id": "id-01" },
+  { "status": "Follow", "followStatus": "Follow", "id": "id-02" },
+  { "status": "Following", "followStatus": "Following", "id": "id-03" }
 ]

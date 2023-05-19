@@ -1,21 +1,19 @@
 import sass from "./App.module.scss";
-import { Container } from "../Container/Container";
-import { Header } from "../Header/Header";
 import { Route, Routes } from "react-router-dom";
 import { FC } from "react";
 import Home from "../../pages/Home/Home";
 import Tweets from "../../pages/Tweets/Tweets";
+import { Layout } from "../Layout/Layout";
 
-const App:FC = () => {
+const App: FC = () => {
   return (
     <div className={sass.App}>
-      <Header />
-      <Container>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tweets" element={<Tweets />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/tweets" element={<Tweets />} />
+          </Route>
         </Routes>
-      </Container>
     </div>
   );
 }
