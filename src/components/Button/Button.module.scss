@@ -7,16 +7,23 @@
   width: 100%;
   text-transform: uppercase;
   border-radius: 10px;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  box-shadow: $--shadow;
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
+  transition: background-color 300ms ease;
 }
 
 .Follow {
   background-color: $--main-color;
+  &:hover {
+    background-color: $--main-hover-color;
+  }
 }
 
 .Following {
   background-color: $--bg-following;
+  &:hover {
+    background-color: $--bg-hover-following;
+  }
 }

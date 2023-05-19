@@ -34,7 +34,7 @@ export const Tweets: FC = () => {
 			</ul>
 			{
 				users.length < 12 &&
-				<button onClick={onLoadMore}>Load More</button>
+				<button className={sass.loadMore} onClick={onLoadMore}>Load More</button>
 			}
 		</>
 	)
