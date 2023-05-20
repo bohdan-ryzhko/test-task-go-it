@@ -1,6 +1,6 @@
 import sass from "./User.module.scss";
 import picture from "../../images/picture.png";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { IUser } from "../../interfaces/IUser";
 import { Button, Follow } from "../Button/Button";
 import { AppDispatch } from "../../types/AppDispatch";
