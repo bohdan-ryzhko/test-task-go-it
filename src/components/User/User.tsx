@@ -1,6 +1,6 @@
 import sass from "./User.module.scss";
 import picture from "../../images/picture.png";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IUser } from "../../interfaces/IUser";
 import { Button, Follow } from "../Button/Button";
 import { AppDispatch } from "../../types/AppDispatch";
@@ -16,9 +16,8 @@ interface IUserProps {
 
 export const User: FC<IUserProps> = ({ user: { user, avatar, tweets, followers, id } }) => {
 	const dispatch: AppDispatch = useDispatch();
-
-	const { followItems } = useUsers();
-	const currentUser = followItems.find(user => user.id === id);
+	const { followingItems } = useUsers();
+	const currentUser = followingItems.find(user => user.id === id);
 
 	const [followStatus, setFollowStatus] = useState<Follow>(currentUser?.status || "Follow");
 

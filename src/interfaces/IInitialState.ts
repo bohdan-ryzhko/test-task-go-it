@@ -6,6 +6,6 @@ export interface IInitialState {
 	items: IUser[],
 	isLoad: boolean,
 	error: null | any,
-	followItems: IFollowItems[],
+	followingItems: IUser[],
 	followStatus: Follow | "",
 }
