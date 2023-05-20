@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -23,7 +23,7 @@
 		// https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
 		// https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
 		// Otherwise, leave pathSegmentsToKeep as 0.
-		var pathSegmentsToKeep = 2;
+		var pathSegmentsToKeep = 1;
 
 		var l = window.location;
 		l.replace(
@@ -49,5 +49,31 @@
 </head>
 
 <body></body>
+
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>404 Page Not Found</title>
+</head>
+
+<body>
+	<script>
+		(function () {
+			var redirectUrl =
+				window.location.protocol +
+				"//" +
+				window.location.hostname +
+				(window.location.port ? ":" + window.location.port : "") +
+				"/test-task-go-it/index.html" +
+				window.location.search +
+				window.location.hash;
+
+			window.location.replace(redirectUrl);
+		})();
+	</script>
+</body>
 
 </html>
