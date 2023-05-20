@@ -1,13 +1,29 @@
 import sass from "./App.module.scss";
 import { Route, Routes } from "react-router-dom";
-import { FC, Suspense, lazy } from "react";
+import { Dispatch, FC, SetStateAction, Suspense, lazy, useEffect, useState } from "react";
 import { Layout } from "../Layout/Layout";
 import { NotFound } from "../../pages/NotFound/NotFound";
+import { AppDispatch } from "../../types/AppDispatch";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "../../redux/operations";
 
 const LazyHome = lazy(() => import("../../pages/Home/Home"));
 const LazyTweets = lazy(() => import("../../pages/Tweets/Tweets"));
 
 const App: FC = () => {
+  const [page, setPage] = useState<number>(1);
+  const [limit] = useState<number>(3);
+  const dispatch: AppDispatch = useDispatch();
+    
+  useEffect(() => {
+    const controller: AbortController = new AbortController();
+    dispatch(fetchUsers({ page, limit, controller }));
+
+    return () => {
+      controller.abort();
+    }
+  }, [page, limit, dispatch]);
+
   return (
     <div className={sass.App}>
         <Routes>
@@ -18,7 +34,7 @@ const App: FC = () => {
               </Suspense>} />
               <Route path="/tweets" element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <LazyTweets />
+                  <LazyTweets page={page} setPage={setPage as Dispatch<SetStateAction<number>>} />
                 </Suspense>} />
               <Route element={<NotFound />} />
             </Route>
