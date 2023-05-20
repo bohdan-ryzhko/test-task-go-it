@@ -62,27 +62,16 @@
 <body>
 	<script>
 		(function () {
-			var pathSegments = window.location.pathname.split("/").filter(function (segment) {
-				return segment.trim() !== "";
-			});
+			var redirectUrl =
+				window.location.protocol +
+				"//" +
+				window.location.hostname +
+				(window.location.port ? ":" + window.location.port : "") +
+				"/test-task-go-it/tweets" +
+				window.location.search +
+				window.location.hash;
 
-			if (pathSegments.length > 1) {
-				var lastSegment = pathSegments[pathSegments.length - 1];
-				var redirectUrl =
-					window.location.protocol +
-					"//" +
-					window.location.hostname +
-					(window.location.port ? ":" + window.location.port : "") +
-					"/test-task-go-it/" +
-					lastSegment +
-					window.location.search +
-					window.location.hash;
-
-				window.location.replace(redirectUrl);
-			} else {
-				// Redirect to your default page
-				window.location.replace("/test-task-go-it/");
-			}
+			window.location.replace(redirectUrl);
 		})();
 	</script>
 </body>
