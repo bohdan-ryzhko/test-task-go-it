@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktest_task_go_it=self.webpackChunktest_task_go_it||[]).push([[499],{1499:function(e,n,s){s.r(n),s.d(n,{default:function(){return a}});var t={home:"Home_home__9Ke73",homeInner:"Home_homeInner__e5230"},o=s(184),a=function(){return(0,o.jsx)("main",{className:t.home,children:(0,o.jsxs)("div",{className:t.homeInner,children:[(0,o.jsx)("p",{className:t.description,children:"Cover text..."}),(0,o.jsx)("h1",{className:t.title,children:"Bohdan Ryzhko"})]})})}}}]);
+//# sourceMappingURL=499.41d4f3c6.chunk.js.map
