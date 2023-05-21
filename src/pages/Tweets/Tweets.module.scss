@@ -10,11 +10,6 @@
   align-items: center;
   gap: 30px;
   margin-bottom: 30px;
-  justify-content: center;
-
-  @include tablet {
-    justify-content: space-between;
-  }
 }
 
 .backLinkWrapper {
