@@ -6,9 +6,9 @@ import { NotFound } from "../../pages/NotFound/NotFound";
 import { AppDispatch } from "../../types/AppDispatch";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "../../redux/operations";
+import Tweets from "../../pages/Tweets/Tweets";
 
 const LazyHome = lazy(() => import("../../pages/Home/Home"));
-const LazyTweets = lazy(() => import("../../pages/Tweets/Tweets"));
 
 const App: FC = () => {
   const [page, setPage] = useState<number>(1);
@@ -32,10 +32,9 @@ const App: FC = () => {
               <Suspense fallback={<div>Loading...</div>}>
                 <LazyHome />
               </Suspense>} />
-              <Route path="/tweets" element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <LazyTweets page={page} setPage={setPage as Dispatch<SetStateAction<number>>} />
-                </Suspense>} />
+              <Route 
+                path="/tweets"
+                element={<Tweets page={page} setPage={setPage as Dispatch<SetStateAction<number>>} />} />
               <Route element={<NotFound />} />
             </Route>
         </Routes>

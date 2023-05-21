@@ -12,7 +12,7 @@ body {
   font-weight: 500;
   font-size: 20px;
   line-height: calc(24 / 20);
-  color: $--main-color;
+  color: $--color-dark;
 }
 
 h1,
@@ -40,4 +40,6 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  padding: 0;
+  color: inherit;
 }

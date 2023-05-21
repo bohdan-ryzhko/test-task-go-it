@@ -47,14 +47,8 @@ const usersSlice = createSlice({
 				state.error = null;
 				const findFollowIndex = state.items.findIndex(({ id }) => id === action.payload.data.id);
 				const defineFollowStatus: Follow = action.payload.status === "Follow" ? "Following" : "Follow";
-
-				if (defineFollowStatus === "Following") {
-					state.followingItems.push({ ...state.items[findFollowIndex], status: "Following" })
-				} else {
-					state.followingItems.splice(findFollowIndex, 1);
-				}
-
 				state.items.splice(findFollowIndex, 1, { ...action.payload.data, status: defineFollowStatus });
+				state.followingItems = state.items.filter(({ status }) => status === "Following");
 			})
 			.addCase(toggleFollow.rejected, (state, action) => {
 				state.isLoad = false;
