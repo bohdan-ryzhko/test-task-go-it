@@ -29,7 +29,7 @@ export const Header: FC = () => {
 	return (
 		<header className={sass.header}>
 			<Container>
-				<div className={pathname === "/" ? sass.headerInnerHome : sass.headerInner}>
+				<div className={sass.headerInner}>
 					<nav className={sass.navigation}>
 						<ul className={sass.navList}>
 							{

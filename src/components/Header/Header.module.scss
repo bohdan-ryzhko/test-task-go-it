@@ -4,30 +4,15 @@
   width: 100vw;
   margin-bottom: 30px;
   border-bottom: 1px solid #8b8b8b;
-  height: 110px;
+  height: 80px;
   position: relative;
-
-  @include tablet {
-    height: 80px;
-  }
 }
 
-.headerInner,
-.headerInnerHome {
+.headerInner {
   display: flex;
-  flex-direction: column;
   height: 100%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-
-  @include tablet {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-}
-
-.headerInnerHome {
-  justify-content: center;
 }
 
 .navList {
