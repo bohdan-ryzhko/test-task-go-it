@@ -1,5 +1,11 @@
 import { useSelector } from "react-redux"
-import { selectError, selectFollowStatus, selectFollowingItems, selectIsLoad, selectUsers } from "../../redux/selectors"
+import {
+	selectError,
+	selectFollowStatus,
+	selectFollowingItems,
+	selectIsLoad,
+	selectUsers
+} from "../../redux/selectors"
 
 export const useUsers = () => {
 	const users = useSelector(selectUsers);

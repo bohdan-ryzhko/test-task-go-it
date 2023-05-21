@@ -1,5 +1,4 @@
 import { IUser } from "./IUser";
-import { IFollowItems } from "./IFollowItems";
 import { Follow } from "../components/Button/Button";
 
 export interface IInitialState {

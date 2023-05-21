@@ -1,8 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchUsers, toggleFollow } from "./operations";
 import { IInitialState } from "../interfaces/IInitialState";
-import { Follow } from "../components/Button/Button";
-import { IUser } from "../interfaces/IUser";
+import {
+	handleFetchUsersFulfilled,
+	handleFetchUsersPending,
+	handleFetchUsersRejected,
+	handleToggleFollowFulfilled,
+	handleToggleFollowRejected
+} from "./handlers";
 
 const initialState: IInitialState = {
 	items: [],
@@ -22,38 +27,11 @@ const usersSlice = createSlice({
 	},
 	extraReducers: builder => {
 		builder
-			.addCase(fetchUsers.pending, (state) => {
-				state.isLoad = true;
-			})
-			.addCase(fetchUsers.fulfilled, (state, action) => {
-				state.isLoad = false;
-				state.error = null;
-				state.items.push(...action.payload.map((user: IUser) => ({ ...user, status: "Follow" })));
-				for (let i = 0; i < state.items.length; i++) {
-					const item = state.items[i];
-					for (let k = 0; k < state.followingItems.length; k++) {
-						const followingItem = state.followingItems[k];
-						if (followingItem.id === item.id) {
-							item.status = followingItem.status;
-						}
-					}
-				}
-			})
-			.addCase(fetchUsers.rejected, (state, action) => {
-				state.isLoad = false;
-				state.error = action.payload;
-			})
-			.addCase(toggleFollow.fulfilled, (state, action) => {
-				state.error = null;
-				const findFollowIndex = state.items.findIndex(({ id }) => id === action.payload.data.id);
-				const defineFollowStatus: Follow = action.payload.status === "Follow" ? "Following" : "Follow";
-				state.items.splice(findFollowIndex, 1, { ...action.payload.data, status: defineFollowStatus });
-				state.followingItems = state.items.filter(({ status }) => status === "Following");
-			})
-			.addCase(toggleFollow.rejected, (state, action) => {
-				state.isLoad = false;
-				state.error = action.payload;
-			})
+			.addCase(fetchUsers.pending, handleFetchUsersPending)
+			.addCase(fetchUsers.fulfilled, handleFetchUsersFulfilled)
+			.addCase(fetchUsers.rejected, handleFetchUsersRejected)
+			.addCase(toggleFollow.fulfilled, handleToggleFollowFulfilled)
+			.addCase(toggleFollow.rejected, handleToggleFollowRejected)
 	}
 });
 
