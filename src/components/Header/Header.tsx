@@ -7,10 +7,12 @@ import links from "../../configuration/links.json";
 import { AppDispatch } from "../../types/AppDispatch";
 import { useDispatch } from "react-redux";
 import { setFollowStatus } from "../../redux/usersSlice";
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 export const Header: FC = () => {
 	const { pathname } = useLocation();
 	const [status, setStatus] = useState<string | null>("");
+	const [isDropDown, setIsDropDown] = useState<boolean>(false);
 
 	const dispatch: AppDispatch = useDispatch();
 
@@ -47,21 +49,30 @@ export const Header: FC = () => {
 						{
 							pathname === "/tweets" &&
 							<>
-								<ul className={sass.filterList}>
-									{
-										filterValues.map(button => (
-											<li key={button.id}>
-												<button
-													disabled={status === button.status}
-													className={sass.filterButton}
-													onClick={onFilterButton}
-												>
-													{button.status}
-												</button>
-											</li>
-										))
-									}
-								</ul>
+								<button className={sass.dropDownMenu} onClick={() => setIsDropDown(prev => !prev)}>
+									Filter
+									<MdKeyboardArrowRight className={isDropDown ? sass.arrowActive : sass.arrow} size={20} />
+								</button>
+								{
+									isDropDown && 
+									<>
+										<ul className={sass.filterList}>
+											{
+												filterValues.map(button => (
+													<li key={button.id}>
+														<button
+															disabled={status === button.status}
+															className={sass.filterButton}
+															onClick={onFilterButton}
+														>
+															{button.status}
+														</button>
+													</li>
+												))
+											}
+										</ul>
+									</>
+								}
 							</>
 						}
 					</div>
